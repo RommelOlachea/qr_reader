@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:qr_reader/widgets/scan_button.dart';
+import 'package:qr_reader/pages/pages.dart';
 import '../widgets/widgets.dart';
 
 class HomePage extends StatelessWidget {
@@ -18,12 +18,28 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(
-        child: Text('Home Screen'),
-      ),
+      body: _HomePageBody(),
       bottomNavigationBar: CustomNavigationBar(),
       floatingActionButton: ScanButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
+  }
+}
+
+class _HomePageBody extends StatelessWidget {
+  const _HomePageBody({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final currentIndex = 1;
+
+    switch (currentIndex) {
+      case 0:
+        return MapasPage();
+      case 1:
+        return DireccionesPage();
+      default:
+        return MapasPage();
+    }
   }
 }
