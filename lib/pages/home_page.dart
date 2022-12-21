@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:qr_reader/pages/pages.dart';
+import 'package:provider/provider.dart';
+import 'package:qr_reader/providers/db_provider.dart';
 import 'package:qr_reader/providers/ui_provider.dart';
 import '../widgets/widgets.dart';
 
@@ -36,6 +37,8 @@ class _HomePageBody extends StatelessWidget {
     final uiProvider = Provider.of<UiProvider>(context);
 
     final currentIndex = uiProvider.selectMenuOpt;
+    //TODO: LEER BASE DE DATOS
+    DBProvider.db.database;
 
     switch (currentIndex) {
       case 0:
