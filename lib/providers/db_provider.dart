@@ -66,4 +66,23 @@ class DBProvider {
     //res es el id del ultimo registro insertado
     return res;
   }
+
+  //metodo que nos permite recuperar un registro mediante
+  //un id, y lo mapeamos al ScanModel
+  Future<ScanModel?> getScanById(int id) async {
+    final db = await database;
+    final res = await db?.query('Scans', where: 'id = ?', whereArgs: [id]);
+
+    return res!.isNotEmpty ? ScanModel.fromJson(res.first) : null;
+  }
+
+  //metodo que regresa todos los scan
+  Future<List<ScanModel>> getTodosLosScans() async {
+    final db = await database;
+    final res = await db?.query('Scans');
+
+    return res!.isNotEmpty
+        ? res.map((s) => ScanModel.fromJson(s)).toList()
+        : null;
+  }
 }
