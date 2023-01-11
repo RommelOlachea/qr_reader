@@ -77,9 +77,22 @@ class DBProvider {
   }
 
   //metodo que regresa todos los scan
-  Future<List<ScanModel>> getTodosLosScans() async {
+  Future<List<ScanModel>?> getTodosLosScans() async {
     final db = await database;
     final res = await db?.query('Scans');
+
+    return res!.isNotEmpty
+        ? res.map((s) => ScanModel.fromJson(s)).toList()
+        : null;
+  }
+
+  //Metodo para traer los scans por tipo
+  Future<List<ScanModel>?> getScansPorTipo(String tipo) async {
+    final db = await database;
+    final res = await db?.rawQuery('''
+      SELECT * FROM Scans WHERE tipo = '$tipo'
+
+''');
 
     return res!.isNotEmpty
         ? res.map((s) => ScanModel.fromJson(s)).toList()
