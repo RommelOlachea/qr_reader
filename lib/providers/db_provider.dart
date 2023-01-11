@@ -98,4 +98,10 @@ class DBProvider {
         ? res.map((s) => ScanModel.fromJson(s)).toList()
         : null;
   }
+
+  //Metodo para actualizar un registro
+  Future<int> updateScan(ScanModel) async {
+    final db = await database;
+    final res = await db.update('Scans', )
+  } 
 }
