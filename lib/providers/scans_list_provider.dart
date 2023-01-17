@@ -16,4 +16,33 @@ class ScanListProvider extends ChangeNotifier {
       notifyListeners(); //notificar a los widgets, para redibujar el widget
     }
   }
+
+  cargarScans() async {
+    final scans = await DBProvider.db.getTodosLosScans();
+    this.scans = [...?scans];
+    notifyListeners();
+  }
+
+  cargarScanPorTipo(String tipo) {
+        final scans = await DBProvider.db.getScansPorTipo(tipo);
+    this.scans = [...?scans];
+    this.tipoSeleccionado = tipo;    
+    notifyListeners();
+  }
+
+  borrarTodos()async {
+   await DBProvider.db.deleteAllScans();
+   this.scans = [];
+   notifyListeners();
+  }
+
+  borrarScanPorId(int id)async{
+    await DBProvider.db.deleteScan(id);
+    this.cargarScanPorTipo(this.tipoSeleccionado);
+  }
+
+  
+  
+
+
 }
