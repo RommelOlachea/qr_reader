@@ -3,6 +3,7 @@ import 'package:qr_reader/models/scan_model.dart';
 import 'package:qr_reader/pages/pages.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_reader/providers/db_provider.dart';
+import 'package:qr_reader/providers/scans_list_provider.dart';
 import 'package:qr_reader/providers/ui_provider.dart';
 import '../widgets/widgets.dart';
 
@@ -39,17 +40,23 @@ class _HomePageBody extends StatelessWidget {
 
     final currentIndex = uiProvider.selectMenuOpt;
     //TODO: TEMPORAL LEER BASE DE DATOS
-    DBProvider.db.database;
+    // DBProvider.db.database;
     //final tempScan = ScanModel(valor: 'http://www.skillDevelop.com');
-    DBProvider.db.deleteAllScans().then(print);
+    // DBProvider.db.deleteAllScans().then(print);
     // final scanGet =
     //     DBProvider.db.getScanById(4).then((scan) => print(scan!.valor));
     //DBProvider.db.getTodosLosScans().then(print);
 
+    //Usar el ScanListProvider
+    final scanListProvider =
+        Provider.of<ScanListProvider>(context, listen: false);
+
     switch (currentIndex) {
       case 0:
+        scanListProvider.cargarScanPorTipo('geo');
         return MapasPage();
       case 1:
+        scanListProvider.cargarScanPorTipo('http');
         return DireccionesPage();
       default:
         return MapasPage();
