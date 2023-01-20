@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:provider/provider.dart';
+import 'package:qr_reader/providers/scans_list_provider.dart';
 
 class ScanButton extends StatelessWidget {
   const ScanButton({super.key});
@@ -9,10 +11,9 @@ class ScanButton extends StatelessWidget {
     return FloatingActionButton(
       elevation: 0,
       onPressed: () async {
-        String barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
-            '#3DBBEF', 'CANCELAR', false, ScanMode.QR);
-        final barcodeScanRes = 'https://fernando.herrera.com';
-        print(barcodeScanRes);
+        // String barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+        //     '#3DBBEF', 'CANCELAR', false, ScanMode.QR);
+        const barcodeScanRes = 'https://fernando.herrera.com';
       },
       child: Icon(Icons.filter_center_focus),
     );
