@@ -36,16 +36,11 @@ class _HomePageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //Obtener el selected menu opt
     final uiProvider = Provider.of<UiProvider>(context);
 
+    //cambiar para mostrar la pagina respectiva
     final currentIndex = uiProvider.selectMenuOpt;
-    //TODO: TEMPORAL LEER BASE DE DATOS
-    // DBProvider.db.database;
-    //final tempScan = ScanModel(valor: 'http://www.skillDevelop.com');
-    // DBProvider.db.deleteAllScans().then(print);
-    // final scanGet =
-    //     DBProvider.db.getScanById(4).then((scan) => print(scan!.valor));
-    //DBProvider.db.getTodosLosScans().then(print);
 
     //Usar el ScanListProvider
     final scanListProvider =
