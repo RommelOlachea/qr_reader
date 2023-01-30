@@ -14,7 +14,7 @@ class DireccionesPage extends StatelessWidget {
         itemCount: scans.length,
         itemBuilder: (_, i) => ListTile(
               leading: Icon(
-                Icons.map,
+                Icons.home_outlined,
                 color: Theme.of(context).primaryColor,
               ),
               title: Text(scans[i].valor),
