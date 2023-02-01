@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_reader/providers/scans_list_provider.dart';
+import 'package:qr_reader/utils/utils.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ScanTiles extends StatelessWidget {
   final String tipo;
@@ -34,7 +36,7 @@ class ScanTiles extends StatelessWidget {
                   Icons.keyboard_arrow_right,
                   color: Colors.grey,
                 ),
-                onTap: () => print('ID del Scan: ${scans[i].id.toString()}'),
+                onTap: () => launchScan(context, scans[i]),
               ),
             ));
   }
