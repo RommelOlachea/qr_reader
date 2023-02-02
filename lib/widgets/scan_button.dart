@@ -14,9 +14,9 @@ class ScanButton extends StatelessWidget {
       onPressed: () async {
         // String barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
         //     '#3DBBEF', 'CANCELAR', false, ScanMode.QR);
-        //final barcodeScanRes = 'https://fernando-herrera.com/';
+        final barcodeScanRes = 'https://fernando-herrera.com/';
 
-        final barcodeScanRes = 'geo:24.019158,-110.293483';
+        //final barcodeScanRes = 'geo:24.019158,-110.293483';
         if (barcodeScanRes == '-1') {
           return;
         }
