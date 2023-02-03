@@ -23,6 +23,11 @@ class _MapaPageState extends State<MapaPage> {
         CameraPosition(target: scan.getLatLng(), zoom: 15, tilt: 0);
     //tilt es la inclinacion del mapa
 
+    //marcadores
+    Set<Marker> markers = new Set<Marker>();
+    markers.add(
+        Marker(markerId: MarkerId('geo-location'), position: scan.getLatLng()));
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Coordenadas'),
@@ -30,6 +35,7 @@ class _MapaPageState extends State<MapaPage> {
       body: GoogleMap(
         myLocationButtonEnabled: false,
         mapType: MapType.normal,
+        markers: markers,
         initialCameraPosition: puntoInicial,
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
