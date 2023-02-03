@@ -1,16 +1,19 @@
 # qr_reader
 
-A new Flutter project.
+Proyecto desarrollado en flutter
+(curso udemy)
 
-## Getting Started
+## Descripcion
 
-This project is a starting point for a Flutter application.
+En este proyecto se hace uso de la camara para leer codigos QR que contengan direcciones http y coordenadas de geolocalización, para posteriormente visualizarlas ya sea en un explorador o en google maps segun sea el caso.
+Tambien almacena los scans en un base de datos SQFLite
 
-A few resources to get you started if this is your first Flutter project:
+Paquetes utilizados en est proyecto:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+-   flutter_barcode_scanner: ^2.0.0
+-   sqflite: ^2.2.2
+-   url_launcher: ^6.1.8
+-   google_maps_flutter: ^2.2.3      
+-   path_provider: ^2.0.11
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
