@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:provider/provider.dart';
-import 'package:qr_reader/models/scan_model.dart';
 import 'package:qr_reader/providers/scans_list_provider.dart';
 import 'package:qr_reader/utils/utils.dart';
 
@@ -12,11 +12,12 @@ class ScanButton extends StatelessWidget {
     return FloatingActionButton(
       elevation: 0,
       onPressed: () async {
-        // String barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
-        //     '#3DBBEF', 'CANCELAR', false, ScanMode.QR);
+        String barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+            '#3DBBEF', 'CANCELAR', false, ScanMode.QR);
         //final barcodeScanRes = 'https://fernando-herrera.com/';
 
-        final barcodeScanRes = 'geo:24.019158,-110.293483';
+        // final barcodeScanRes = 'geo:24.019158,-110.293483';
+
         if (barcodeScanRes == '-1') {
           return;
         }

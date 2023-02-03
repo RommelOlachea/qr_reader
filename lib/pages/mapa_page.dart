@@ -49,15 +49,23 @@ class _MapaPageState extends State<MapaPage> {
       ),
       body: GoogleMap(
         myLocationButtonEnabled: false,
-        mapType: MapType.normal,
+        mapType: mapType,
         markers: markers,
         initialCameraPosition: puntoInicial,
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);
         },
       ),
-      floatingActionButton:
-          FloatingActionButton(child: Icon(Icons.layers), onPressed: () {}),
+      floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.layers),
+          onPressed: () {
+            if (mapType == MapType.normal) {
+              mapType = MapType.satellite;
+            } else {
+              mapType = MapType.normal;
+            }
+            setState(() {});
+          }),
     );
   }
 }
