@@ -14,6 +14,8 @@ class _MapaPageState extends State<MapaPage> {
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
 
+  MapType mapType = MapType.normal;
+
   @override
   Widget build(BuildContext context) {
     final ScanModel scan =
@@ -31,6 +33,19 @@ class _MapaPageState extends State<MapaPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Coordenadas'),
+        actions: [
+          IconButton(
+              onPressed: () async {
+                final GoogleMapController controller = await _controller.future;
+                controller.animateCamera(
+                    CameraUpdate.newCameraPosition(CameraPosition(
+                  target: scan.getLatLng(),
+                  zoom: 17.5,
+                  tilt: 0,
+                )));
+              },
+              icon: Icon(Icons.location_on)),
+        ],
       ),
       body: GoogleMap(
         myLocationButtonEnabled: false,
@@ -41,6 +56,8 @@ class _MapaPageState extends State<MapaPage> {
           _controller.complete(controller);
         },
       ),
+      floatingActionButton:
+          FloatingActionButton(child: Icon(Icons.layers), onPressed: () {}),
     );
   }
 }
