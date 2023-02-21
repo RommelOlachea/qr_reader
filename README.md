@@ -6,9 +6,18 @@ Proyecto desarrollado en flutter
 ## Descripcion
 
 En este proyecto se hace uso de la camara para leer codigos QR que contengan direcciones http y coordenadas de geolocalización, para posteriormente visualizarlas ya sea en un explorador o en google maps segun sea el caso.
-Tambien almacena los scans en un base de datos SQFLite
+Tambien almacena los scans en un base de datos SQFLite, temas puntuales:
 
-Paquetes utilizados en est proyecto:
+- Lanzar la cámara y leer un código QR
+- Almacenarlo en SQLite
+- CRUD hacia SQLite - Almacenamiento interno
+- Uso de mapas
+- GoogleMaps
+- Marcadores en maps
+- Abrir URLs
+- Provider como gestor de estado
+
+##  Paquetes utilizados en est proyecto:
 
 -   flutter_barcode_scanner: ^2.0.0
 -   sqflite: ^2.2.2
